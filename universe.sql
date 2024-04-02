@@ -161,8 +161,8 @@ CREATE TABLE public.planet (
     name character varying(30) NOT NULL,
     has_life boolean,
     distance_from_earth integer,
-    star_id integer,
-    diameter integer
+    diameter integer,
+    star_id integer
 );
 
 
@@ -198,8 +198,8 @@ CREATE TABLE public.star (
     star_id integer NOT NULL,
     name character varying(30) NOT NULL,
     age_in_millions_of_years numeric,
-    galaxy_id integer,
-    is_spherical boolean
+    is_spherical boolean,
+    galaxy_id integer
 );
 
 
@@ -313,30 +313,30 @@ INSERT INTO public.moon VALUES (20, 'Titanus', NULL, 7, NULL);
 -- Data for Name: planet; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.planet VALUES (1, 'Mercury', NULL, NULL, NULL, NULL);
-INSERT INTO public.planet VALUES (2, 'Venus', NULL, NULL, NULL, NULL);
-INSERT INTO public.planet VALUES (3, 'Earth', NULL, NULL, NULL, NULL);
-INSERT INTO public.planet VALUES (4, 'Mars', NULL, NULL, NULL, NULL);
-INSERT INTO public.planet VALUES (5, 'Jupiter', NULL, NULL, NULL, NULL);
-INSERT INTO public.planet VALUES (6, 'Saturn', NULL, NULL, NULL, NULL);
-INSERT INTO public.planet VALUES (7, 'Uranus', NULL, NULL, NULL, NULL);
-INSERT INTO public.planet VALUES (8, 'Neptune', NULL, NULL, NULL, NULL);
-INSERT INTO public.planet VALUES (9, 'Pluto', NULL, NULL, NULL, NULL);
-INSERT INTO public.planet VALUES (10, 'Melmac', NULL, NULL, NULL, NULL);
-INSERT INTO public.planet VALUES (11, 'Moosroom Kingdom', NULL, NULL, NULL, NULL);
-INSERT INTO public.planet VALUES (12, 'C-1456', NULL, NULL, NULL, NULL);
+INSERT INTO public.planet VALUES (1, 'Mercury', NULL, NULL, NULL, 1);
+INSERT INTO public.planet VALUES (2, 'Venus', NULL, NULL, NULL, 1);
+INSERT INTO public.planet VALUES (3, 'Earth', NULL, NULL, NULL, 1);
+INSERT INTO public.planet VALUES (4, 'Mars', NULL, NULL, NULL, 1);
+INSERT INTO public.planet VALUES (5, 'Jupiter', NULL, NULL, NULL, 1);
+INSERT INTO public.planet VALUES (6, 'Saturn', NULL, NULL, NULL, 1);
+INSERT INTO public.planet VALUES (7, 'Uranus', NULL, NULL, NULL, 1);
+INSERT INTO public.planet VALUES (8, 'Neptune', NULL, NULL, NULL, 1);
+INSERT INTO public.planet VALUES (9, 'Pluto', NULL, NULL, NULL, 1);
+INSERT INTO public.planet VALUES (10, 'Melmac', NULL, NULL, NULL, 1);
+INSERT INTO public.planet VALUES (11, 'Moosroom Kingdom', NULL, NULL, NULL, 1);
+INSERT INTO public.planet VALUES (12, 'C-1456', NULL, NULL, NULL, 1);
 
 
 --
 -- Data for Name: star; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.star VALUES (1, 'Sirius', 240, NULL, NULL);
-INSERT INTO public.star VALUES (2, 'Betelgeuse', 9, NULL, NULL);
-INSERT INTO public.star VALUES (3, 'Alpha Centauri A', 7, NULL, NULL);
-INSERT INTO public.star VALUES (4, 'Aldebaran', 625, NULL, NULL);
-INSERT INTO public.star VALUES (5, 'Vega', 455, NULL, NULL);
-INSERT INTO public.star VALUES (6, 'Proxima Centauri', 5, NULL, NULL);
+INSERT INTO public.star VALUES (1, 'Sirius', 240, NULL, 1);
+INSERT INTO public.star VALUES (2, 'Betelgeuse', 9, NULL, 1);
+INSERT INTO public.star VALUES (3, 'Alpha Centauri A', 7, NULL, 1);
+INSERT INTO public.star VALUES (4, 'Aldebaran', 625, NULL, 1);
+INSERT INTO public.star VALUES (5, 'Vega', 455, NULL, 1);
+INSERT INTO public.star VALUES (6, 'Proxima Centauri', 5, NULL, 1);
 
 
 --
@@ -372,6 +372,14 @@ SELECT pg_catalog.setval('public.planet_planet_id_seq', 12, true);
 --
 
 SELECT pg_catalog.setval('public.star_star_id_seq', 6, true);
+
+
+--
+-- Name: black_holes black_holes_id; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.black_holes
+    ADD CONSTRAINT black_holes_id PRIMARY KEY (black_holes_id);
 
 
 --
